@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Brio MRS</Authors>
+    <Product>Brio MRS</Product>
+    <Company>Brio MRS©</Company>
+  </PropertyGroup>
+
+</Project>

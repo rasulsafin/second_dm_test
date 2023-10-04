@@ -1,0 +1,79 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:notify="http://www.hardcodet.net/taskbar"
+                    xmlns:local="clr-namespace:Brio.Docs.Launcher"
+                    xmlns:base="clr-namespace:Brio.Docs.Launcher.Base"
+                    xmlns:res="clr-namespace:Brio.Docs.Launcher.Resources"
+                    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
+                    >
+    <controls:BooleanToVisibilityConverter x:Key="BoolToVisible"/>
+
+    <ContextMenu x:Shared="true" x:Key="SysTrayMenu">
+        <MenuItem>
+            <MenuItem.Style>
+                <Style TargetType="{x:Type MenuItem}">
+                    <Setter Property="IsHitTestVisible" Value="False"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsDMRunning}" Value="True">
+                            <Setter Property="Header" Value="{x:Static res:LocalizationResources.Label_DMStarted}"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="Background" Value="Green"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsDMRunning}" Value="False">
+                            <Setter Property="Header" Value="{x:Static res:LocalizationResources.Label_DMStopped}"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="Background" Value="Red"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </MenuItem.Style>
+        </MenuItem>
+
+        <MenuItem Header="{x:Static res:LocalizationResources.Label_StartDM}" Command="{Binding StartDmConsoleCommand}">
+            <MenuItem.Style>
+                <Style TargetType="{x:Type MenuItem}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsDMRunning}" Value="False">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsDMRunning}" Value="True">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </MenuItem.Style>
+        </MenuItem>
+
+        <MenuItem Command="{Binding ToggleConsoleCommand}" Visibility="{Binding IsDMRunning, Converter={StaticResource BoolToVisible}}">
+            <MenuItem.Style>
+                <Style TargetType="{x:Type MenuItem}">
+                    <Style.Triggers>                        
+                        <DataTrigger Binding="{Binding IsConsoleVisible}" Value="True">
+                            <Setter Property="Header" Value="{x:Static res:LocalizationResources.Label_HideConsole}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsConsoleVisible}" Value="False">
+                            <Setter Property="Header" Value="{x:Static res:LocalizationResources.Label_ShowConsole}"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </MenuItem.Style>
+        </MenuItem>
+
+        <MenuItem Header="{x:Static res:LocalizationResources.Label_ShowSwagger}" Command="{Binding OpenSwaggerCommand}" 
+                  Visibility="{Binding IsSwaggerVisible, Converter={StaticResource BoolToVisible}}" />
+        <Separator />
+        <MenuItem Header="{x:Static res:LocalizationResources.Label_Exit}" 
+                  ToolTip="{x:Static res:LocalizationResources.Tooltip_StopDmAndExit}" Command="{Binding ExitApplicationCommand}" />
+    </ContextMenu>
+
+    <notify:TaskbarIcon x:Key="NotifyIcon"
+                    IconSource="Resources/logo64.ico"
+                    ToolTipText="{x:Static res:LocalizationResources.Tooltip_Dm_Brio_Mrs}"
+                    DoubleClickCommand="{Binding ToggleConsoleCommand}"
+                    ContextMenu="{StaticResource SysTrayMenu}">
+        <notify:TaskbarIcon.DataContext>
+            <local:NotifyIconViewModel />
+        </notify:TaskbarIcon.DataContext>
+    </notify:TaskbarIcon>
+
+</ResourceDictionary>

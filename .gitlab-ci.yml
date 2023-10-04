@@ -1,0 +1,108 @@
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS'
+      when: never
+    - if: '$CI_COMMIT_BRANCH'
+
+variables:
+  MSBUILD_PATH: 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe'
+  ARTIFACTS_PATH: 'Document Management'
+  API_PATH: 'Brio.Docs.Api\bin\Release\Publish'
+  LAUNCHER_PATH: 'Brio.Docs.Launcher\bin\Release\net5.0-windows'
+  UPDATER_ARTIFACTS_FOLDER: 'BRIO Docs Updater'
+
+stages:
+  - test
+  - build
+  - deploy
+
+integration-tests:
+  stage: test
+  script:
+    - 'dotnet test Brio.Docs.IntegrationTests --test-adapter-path:. --logger:"junit;LogFilePath=..\artifacts\{assembly}-test-result.xml;MethodFormat=Class;FailureBodyFormat=Verbose"'
+  artifacts:
+    when: always
+    paths:
+      - ./**/*test-result.xml
+    reports:
+      junit:
+        - ./**/*test-result.xml
+
+build:
+  stage: build
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: always
+    - when: manual
+      allow_failure: true
+  script:
+    - 'nuget restore'
+    - mkdir "%ARTIFACTS_PATH%
+    - mkdir "%ARTIFACTS_PATH%\Launcher"
+    - '"%MSBUILD_PATH%" /property:Configuration=Release'
+    - xcopy /E "%LAUNCHER_PATH%" "%ARTIFACTS_PATH%\Launcher"
+    - '"%MSBUILD_PATH%" /t:Restore;Rebuild;Publish /p:SelfContained=True /p:PublishProtocol=FileSystem /p:Configuration=Release /p:PublishDir=bin\Release\Publish /p:RuntimeIdentifier=win-x64 /p:AllowedReferenceRelatedFileExtensions=*.pdb /p:DebugSymbols=false /p:DebugType=none'
+    - xcopy /E "%API_PATH%" "%ARTIFACTS_PATH%"
+    - copy CHANGELOG.md "%ARTIFACTS_PATH%\CHANGELOG.md"
+    - del /S "%ARTIFACTS_PATH%\*.pdb"
+    - dotnet tool restore
+    - for /f "delims=" %%i in ('dotnet minver -d dev -b %CI_COMMIT_SHORT_SHA%') do set version=%%i
+    - echo BUILD_VERSION=%version% >> build.env
+  artifacts:
+    expire_in: 2 days
+    paths:
+      - '%ARTIFACTS_PATH%'
+    reports:
+      dotenv: build.env
+
+build-updater:
+  stage: build
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: always
+    - when: manual
+      allow_failure: true
+  allow_failure: true
+  script:
+    - 'nuget restore'
+    - mkdir "%UPDATER_ARTIFACTS_FOLDER%
+    - '"%MSBUILD_PATH%" /property:Configuration=Release'
+    - xcopy /E "%UPDATER_BUILD_PATH%" "%UPDATER_ARTIFACTS_FOLDER%"
+    - del /S "%UPDATER_ARTIFACTS_FOLDER%\*.pdb"
+    - echo UPDATER_ARTIFACTS_FOLDER=%UPDATER_ARTIFACTS_FOLDER% >> build.env
+  artifacts:
+    expire_in: 2 days
+    paths:
+      - '%UPDATER_ARTIFACTS_FOLDER%'
+  variables:
+    UPDATER_BUILD_PATH: 'Brio.Docs.Updater\bin\Release\net5.0'
+        
+build-installer:
+  stage: build
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: always
+    - when: manual
+      allow_failure: true
+  needs:
+    - job: build
+      artifacts: true
+    - job: build-updater
+      artifacts: true
+  allow_failure: true
+  script:
+    - iscc /O"%INSTALLER_ARTIFACTS_FULL_PATH%" "%SCRIPT_PATH%" "/DDMAppName=%BUILD_NAME%" "/DDMAppVersion=%BUILD_VERSION%" "/DDMSourceBuild=%BUILD_PATH%" "/DDMUpdater=%UPDATER_PATH%"
+  artifacts:
+    name: "%ARTIFACTS_NAME%"
+    paths:
+      - "%INSTALLER_ARTIFACTS_FOLDER%"
+    expire_in: 1 week
+  variables:
+    BUILD_NAME: "BrioDocs"
+    SCRIPT_PATH: "${CI_PROJECT_DIR}/Installation/installer.iss"
+    INSTALLER_ARTIFACTS_FOLDER: "BRIO Docs Setup ${BUILD_VERSION}"
+    INSTALLER_ARTIFACTS_FULL_PATH: "${CI_PROJECT_DIR}/${INSTALLER_ARTIFACTS_FOLDER}/"
+    ARTIFACTS_NAME: "BRIO-DOCS-SETUP-${BUILD_VERSION}"
+    BUILD_PATH: "${CI_PROJECT_DIR}/${ARTIFACTS_PATH}/"
+    UPDATER_PATH: "${CI_PROJECT_DIR}/${UPDATER_ARTIFACTS_FOLDER}/"

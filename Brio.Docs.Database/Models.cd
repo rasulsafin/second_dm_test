@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Brio.Docs.Database.Models.BimElementObjective">
+    <Position X="13.5" Y="3.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAEAAAAAAACAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Models\Bridges\BimElementObjective.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Brio.Docs.Database.Models.ConnectionInfoEnumerationType">
+    <Position X="7.5" Y="19.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAwAAAAAAAAAAQAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Bridges\ConnectionInfoEnumerationType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Brio.Docs.Database.Models.ConnectionInfoEnumerationValue">
+    <Position X="0.5" Y="13.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAQEAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Models\Bridges\ConnectionInfoEnumerationValue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Brio.Docs.Database.Models.ObjectiveItem">
+    <Position X="13.5" Y="12.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAiAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Bridges\ObjectiveItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Brio.Docs.Database.Models.UserProject">
+    <Position X="9.75" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAACAgABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Bridges\UserProject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Brio.Docs.Database.Models.UserRole" Collapsed="true">
+    <Position X="18" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAIAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Bridges\UserRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Brio.Docs.Database.Models.AppProperty">
+    <Position X="4.75" Y="10.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAgAQAAAAAAAAIAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Models\AppProperty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Brio.Docs.Database.Models.AuthFieldName">
+    <Position X="12.75" Y="15.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAgAAAAAAAAAQIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AuthFieldName.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Brio.Docs.Database.Models.AuthFieldValue">
+    <Position X="4.75" Y="16.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAQAAAAAAAAAAQAAEAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Models\AuthFieldValue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Brio.Docs.Database.Models.BimElement">
+    <Position X="13" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAgAAAAAAAACBAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Models\BimElement.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Objectives" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Brio.Docs.Database.Models.ConnectionInfo">
+    <Position X="5.75" Y="13.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>gAABAAAAAAAAgAAAAAAAAAAIAAAEAAAAAAAAAAEAACA=</HashCode>
+      <FileName>Models\ConnectionInfo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="EnumerationValues" />
+      <Property Name="EnumerationTypes" />
+      <Property Name="AuthFieldValues" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Brio.Docs.Database.Models.ConnectionType">
+    <Position X="9.75" Y="13.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAQgAAEAAEAAAAAAAAACA=</HashCode>
+      <FileName>Models\ConnectionType.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="AppProperties" />
+      <Property Name="AuthFieldNames" />
+      <Property Name="ConnectionInfos" />
+      <Property Name="EnumerationTypes" />
+      <Property Name="ObjectiveTypes" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Brio.Docs.Database.Models.DynamicField" BaseTypeListCollapsed="true">
+    <Position X="17.25" Y="10.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AQAIgAAAAACAzAAACAAAAAQAAAAAAAAAAQAiIAAAAAA=</HashCode>
+      <FileName>Models\DynamicField.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="ChildrenDynamicFields" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Brio.Docs.Database.Models.DynamicFieldInfo" BaseTypeListCollapsed="true">
+    <Position X="1.25" Y="7" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAwAAAAgAAAAQAAAAAAAQAAQAiIAAAAAA=</HashCode>
+      <FileName>Models\DynamicFieldInfo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="ChildrenDynamicFields" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Brio.Docs.Database.Models.EnumerationType">
+    <Position X="8.75" Y="16.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQIAAAEEAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\EnumerationType.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="ConnectionInfos" />
+      <Property Name="EnumerationValues" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Brio.Docs.Database.Models.EnumerationValue">
+    <Position X="0.75" Y="16" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAwAAAAAAAAAAAAAEAIAAAAgAAAAAAA=</HashCode>
+      <FileName>Models\EnumerationValue.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="ConnectionInfos" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Brio.Docs.Database.Models.Item" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="6" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAIAACAAACAjAAAAAAACAAABABAAAAAAAACAAAAAgA=</HashCode>
+      <FileName>Models\Item.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Objectives" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Brio.Docs.Database.Models.Location">
+    <Position X="21.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAABAAgAAgiAAAAAAEAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Location.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Brio.Docs.Database.Models.Objective" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="6.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>QAAIEBAWAACgjGAAggIACAAABAAAAAQAAACCAAAAAAA=</HashCode>
+      <FileName>Models\Objective.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="DynamicFields" />
+      <Property Name="Items" />
+      <Property Name="ChildrenObjectives" />
+      <Property Name="BimElements" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Brio.Docs.Database.Models.ObjectiveType">
+    <Position X="9.25" Y="10.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>gAAAAACAgAAAgAAAAAAAAAQIAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ObjectiveType.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Objectives" />
+      <Property Name="DefaultDynamicFields" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Brio.Docs.Database.Models.Project" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="7.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAIACCAAACAjEAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Models\Project.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Objectives" />
+      <Property Name="Items" />
+      <Property Name="Users" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Brio.Docs.Database.Models.ReportCount">
+    <Position X="23.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAwAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ReportCount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Brio.Docs.Database.Models.Role">
+    <Position X="17.75" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Role.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Users" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Brio.Docs.Database.Models.Synchronization" Collapsed="true">
+    <Position X="21.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAgAAAAAAAAAgAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Synchronization.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Brio.Docs.Database.Models.User">
+    <Position X="17.25" Y="7" Width="3" />
+    <TypeIdentifier>
+      <HashCode>EACAAACAAAAAgAAAAAAAAAQAAwAAEAAAAAASAAAAAQA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Objectives" />
+      <Property Name="Projects" />
+      <Property Name="Roles" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Interface Name="Brio.Docs.Database.Models.IDynamicField" Collapsed="true">
+    <Position X="21.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAgAAAAAAA=</HashCode>
+      <FileName>Models\IDynamicField.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

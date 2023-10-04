@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net5.0</TargetFramework>
+        <Authors>Brio MRS</Authors>
+        <Company>Brio MRS©</Company>
+        <RootNamespace>Brio.Docs.Api</RootNamespace>
+        <Copyright>Brio MRS©</Copyright>
+        <Product>Brio MRS Document Management Updater</Product>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Brio.Docs.Database\Brio.Docs.Database.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Microsoft.Extensions.Hosting">
+        <HintPath>C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\5.0.17\Microsoft.Extensions.Hosting.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.Hosting.Abstractions">
+        <HintPath>C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\5.0.17\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+      <PackageReference Include="Serilog" Version="2.11.0" />
+      <PackageReference Include="Serilog.Extensions.Hosting" Version="5.0.1" />
+      <PackageReference Include="Serilog.Settings.Configuration" Version="3.3.0" />
+      <PackageReference Include="Serilog.Sinks.Console" Version="4.0.1" />
+      <PackageReference Include="Serilog.Sinks.Debug" Version="2.0.0" />
+      <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="appsettings.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Include="appsettings.Debug.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <Content Include="..\Brio.Docs.Api\DocumentManagement.db">
+        <Link>DocumentManagement.db</Link>
+      </Content>
+    </ItemGroup>
+
+</Project>

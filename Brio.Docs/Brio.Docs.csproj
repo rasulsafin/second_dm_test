@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Authors>Brio MRS</Authors>
+    <Company>Brio MRS©</Company>
+    <Product>Brio MRS</Product>
+  </PropertyGroup>
+  
+    <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="10.1.1" />
+      <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+      <PackageReference Include="Destructurama.ByIgnoring" Version="1.1.0" />
+      <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.9" />
+      <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+      <PackageReference Include="Microsoft.Extensions.Localization.Abstractions" Version="6.0.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Brio.Docs.Connections.BrioCloud\Brio.Docs.Connections.BrioCloud.csproj" />
+      <ProjectReference Include="..\Brio.Docs.Connections.GoogleDrive\Brio.Docs.Connections.GoogleDrive.csproj" />
+      <ProjectReference Include="..\Brio.Docs.Connections.YandexDisk\Brio.Docs.Connections.YandexDisk.csproj" />
+      <ProjectReference Include="..\Brio.Docs.Database\Brio.Docs.Database.csproj" />
+      <ProjectReference Include="..\Brio.Docs.Client\Brio.Docs.Client.csproj" />
+      <ProjectReference Include="..\Brio.Docs.Synchronizer\Brio.Docs.Synchronizer.csproj" />
+      <ProjectReference Include="..\Brio.Docs.Reports\Brio.Docs.Reports.csproj" />
+    </ItemGroup>
+  
+    <ItemGroup>
+      <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+        <_Parameter1>$(AssemblyName).IntegrationTests</_Parameter1>
+        <!-- We use the value of AssemblyName to declare the value of the attribute -->
+      </AssemblyAttribute>
+    </ItemGroup>
+  
+    <ItemGroup>
+      <EmbeddedResource Update="Resources\ReportLocalization.en.resx">
+        <Generator></Generator>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\ReportLocalization.ru.resx">
+        <Generator></Generator>
+      </EmbeddedResource>
+    </ItemGroup>
+  
+    <ItemGroup>
+      <Folder Include="Dtos\" />
+    </ItemGroup>
+
+</Project>

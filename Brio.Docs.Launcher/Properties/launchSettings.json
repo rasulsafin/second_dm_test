@@ -1,0 +1,20 @@
+{
+  "profiles": {
+    "Brio.Docs.Launcher no args": {
+      "commandName": "Project",
+      "commandLineArgs": ""
+    },
+    "Brio.Docs.Launcher dev": {
+      "commandName": "Project",
+      "commandLineArgs": "-d -e ..\\..\\..\\..\\Brio.Docs.Api\\bin\\Debug\\net5.0\\Brio.Docs.Api.exe"
+    },
+    "Brio.Docs.Launcher dev ru": {
+      "commandName": "Project",
+      "commandLineArgs": "-d -l ru-RU -e ..\\..\\..\\..\\Brio.Docs.Api\\bin\\Debug\\net5.0\\Brio.Docs.Api.exe"
+    },
+    "Brio.Docs.Launcher dev en": {
+      "commandName": "Project",
+      "commandLineArgs": "-d -l en -e ..\\..\\..\\..\\Brio.Docs.Api\\bin\\Debug\\net5.0\\Brio.Docs.Api.exe"
+    }
+  }
+}

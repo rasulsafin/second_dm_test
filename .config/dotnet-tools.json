@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "dotnet-ef": {
+      "version": "5.0.11",
+      "commands": [
+        "dotnet-ef"
+      ]
+    },
+    "minver-cli": {
+      "version": "4.2.0",
+      "commands": [
+        "minver"
+      ]
+    }
+  }
+}

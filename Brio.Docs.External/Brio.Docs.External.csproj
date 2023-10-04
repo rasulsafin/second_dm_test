@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Authors>Brio MRS</Authors>
+    <Product>Brio MRS Connection Utils</Product>
+    <Company>Brio MRS©</Company>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Brio.Docs.Integration\Brio.Docs.Integration.csproj" />
+    <ProjectReference Include="..\Brio.Docs.Client\Brio.Docs.Client.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+		<RootNamespace>Brio.Docs.Connections.BrioCloud</RootNamespace>
+		<Authors>Brio MRS</Authors>
+		<Product>Brio MRS Connection</Product>
+		<Company>Brio MRS©</Company>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="Serilog" Version="2.10.0" />
+		<PackageReference Include="WebDav.Client" Version="2.7.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Brio.Docs.Common\Brio.Docs.Common.csproj" />
+		<ProjectReference Include="..\Brio.Docs.Integration\Brio.Docs.Integration.csproj" />
+		<ProjectReference Include="..\Brio.Docs.External\Brio.Docs.External.csproj" />
+	</ItemGroup>
+</Project>

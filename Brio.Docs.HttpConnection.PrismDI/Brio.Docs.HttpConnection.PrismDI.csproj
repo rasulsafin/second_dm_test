@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+      <Authors>Brio MRS</Authors>
+      <Company>Brio MRS©</Company>
+      <Product>Brio MRS</Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Prism.Core" Version="8.1.97" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Brio.Docs.HttpConnection\Brio.Docs.HttpConnection.csproj" />
+  </ItemGroup>
+
+</Project>

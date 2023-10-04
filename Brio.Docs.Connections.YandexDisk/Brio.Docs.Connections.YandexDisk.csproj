@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Brio.Docs.Connections.YandexDisk</RootNamespace>
+    <Authors>Brio MRS</Authors>
+    <Company>Brio MRS©</Company>
+    <Product>Brio MRS Connection</Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Brio.Docs.Integration\Brio.Docs.Integration.csproj" />
+    <ProjectReference Include="..\Brio.Docs.External\Brio.Docs.External.csproj" />
+  </ItemGroup>
+
+</Project>
